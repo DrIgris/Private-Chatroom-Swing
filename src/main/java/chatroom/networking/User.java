@@ -6,6 +6,8 @@ import java.net.Socket;
 import java.util.HashMap;
 import java.util.Scanner;
 
+import javax.swing.JTextArea;
+
 import src.main.java.chatroom.Duplexer;
 
 public class User implements Runnable{
@@ -13,6 +15,7 @@ public class User implements Runnable{
     private int port;
     private String address;
     private HashMap<String, User> friends;
+    private HashMap<String, JTextArea> textAreas;
     private Sender sender;
 
 
@@ -22,6 +25,7 @@ public class User implements Runnable{
         this.port = port;
         this.address = address;
         friends = new HashMap<>();
+        textAreas = new HashMap<>();
     }
 
 
@@ -50,15 +54,27 @@ public class User implements Runnable{
         friends.put(friend.name, friend);
     }
 
+    public Sender getSender() {
+        return sender;
+    }
+
+    public void setTextAreas(HashMap<String, JTextArea> textAreas) {
+        this.textAreas = textAreas;
+    }
+
+    public HashMap<String, JTextArea> getTextAreas() {
+        return textAreas;
+    }
+
     public void receiveConnections() throws IOException{
         try(ServerSocket server = new ServerSocket(port)) {
             Socket friendSocket = server.accept();
             Duplexer duplexer = new Duplexer(friendSocket);
             String friendName = duplexer.receive();
-            System.out.println("::::::::::::: " + friendName + " ::::::::::::::");
             User friend = friends.get(friendName);
+            JTextArea friendArea = textAreas.get(friendName);
             System.out.println("NEW CONNECTION RECEIVED FROM :: " + friend.name);
-            Receiver receiver = new Receiver(duplexer, friend);
+            Receiver receiver = new Receiver(duplexer, friend, friendArea);
             Thread r = new Thread(receiver);
             r.start();
         }
@@ -83,8 +99,10 @@ public class User implements Runnable{
         Socket friendSocket = new Socket(friend.address, friend.port);
         Duplexer duplexer = new Duplexer(friendSocket);
         duplexer.send(name);
-        Sender sender = new Sender(duplexer, name);
+        JTextArea friendArea = textAreas.get(friend.getName());
+        Sender sender = new Sender(duplexer, name, friendArea);
         this.sender = sender;
+        System.out.println("CONNECTED");
         // Thread s = new Thread(sender);
         // s.start();
     }
@@ -108,7 +126,7 @@ public class User implements Runnable{
 
 
    /*
-    * Store friends in JSON file? parse on startup
+    * Store friends in JSON file? parse on startup, or maybe csv
 
     Maybe no messages if offline
     */

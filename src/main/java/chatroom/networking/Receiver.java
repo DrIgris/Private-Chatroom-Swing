@@ -1,32 +1,35 @@
 package src.main.java.chatroom.networking;
 
 import java.io.IOException;
-import java.net.Socket;
+
+import javax.swing.JTextArea;
 
 import src.main.java.chatroom.Duplexer;
 
 public class Receiver implements Runnable{
-    //private GUI Screen for respective friend
+    private JTextArea friendArea;
     private String name;
     private Duplexer duplexer;
     private boolean on;
 
-    public Receiver(Duplexer duplexer, User friend) throws IOException {
+    public Receiver(Duplexer duplexer, User friend, JTextArea friendArea) throws IOException {
         name = friend.getName(); 
         this.duplexer = duplexer;
-        on = true;
-    }
-
-    public Receiver(Duplexer duplexer, User2 friend) throws IOException {
-        name = friend.getName(); 
-        this.duplexer = duplexer;
+        this.friendArea = friendArea;
         on = true;
     }
 
     @Override
     public void run() {
         while (on) {
-            System.out.println(name + ": " + duplexer.receive());
+            String msg = duplexer.receive();
+            if(msg.equals("\u2665")) {
+
+            } else {
+                friendArea.append(name + ": " + msg + "\n");
+                friendArea.setCaretPosition(friendArea.getDocument().getLength());
+            }
+            
         }
     }
 
