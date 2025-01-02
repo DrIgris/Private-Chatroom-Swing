@@ -7,8 +7,10 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 import javax.swing.JTextArea;
+import javax.swing.Popup;
 
 import src.main.java.chatroom.Duplexer;
+import src.main.java.chatroom.GUI.ConnectionPopup;
 
 public class User implements Runnable{
     private String name;
@@ -17,9 +19,8 @@ public class User implements Runnable{
     private HashMap<String, User> friends;
     private HashMap<String, JTextArea> textAreas;
     private Sender sender;
+    private ConnectionPopup popup;
 
-
-    
     public User(String name, int port, String address) {
         this.name = name;
         this.port = port;
@@ -66,6 +67,14 @@ public class User implements Runnable{
         return textAreas;
     }
 
+    public ConnectionPopup getPopup() {
+        return popup;
+    }
+
+    public void setPopup(ConnectionPopup popup) {
+        this.popup = popup;
+    }
+
     public void receiveConnections() throws IOException{
         try(ServerSocket server = new ServerSocket(port)) {
             Socket friendSocket = server.accept();
@@ -74,7 +83,7 @@ public class User implements Runnable{
             User friend = friends.get(friendName);
             JTextArea friendArea = textAreas.get(friendName);
             System.out.println("NEW CONNECTION RECEIVED FROM :: " + friend.name);
-            Receiver receiver = new Receiver(duplexer, friend, friendArea);
+            Receiver receiver = new Receiver(duplexer, friend, friendArea, popup);
             Thread r = new Thread(receiver);
             r.start();
         }

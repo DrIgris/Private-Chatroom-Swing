@@ -27,6 +27,7 @@ public class ChatroomGUI {
     private HashMap<String, JTextArea> friendAreas;
     private GridBagConstraints gbc = new GridBagConstraints();
     private Application application;
+    private ConnectionPopup friendPopup;
 
 
 
@@ -74,7 +75,6 @@ public class ChatroomGUI {
 
 
         friendPanel.setLayout(new BoxLayout(friendPanel, BoxLayout.Y_AXIS));
-
         
       
 
@@ -109,11 +109,11 @@ public class ChatroomGUI {
 
        
 
-        mariButton.addActionListener(new FriendButtonListener(application));
+        mariButton.addActionListener(new FriendButtonListener(application, 0));
 
-        persiButton.addActionListener(new FriendButtonListener(application));
-        
-        brennenButton.addActionListener(new FriendButtonListener(application));
+        persiButton.addActionListener(new FriendButtonListener(application, 0));
+
+        brennenButton.addActionListener(new FriendButtonListener(application, 1));
 
         JScrollPane friendScroll = new JScrollPane(friendPanel);
         
@@ -168,11 +168,20 @@ public class ChatroomGUI {
         inputPanel.add(textInput, gbc);
 
 
+        PopupFactory pf = new PopupFactory();
 
+        JLabel popupLabel = new JLabel();
 
-
-
+     
         
+        popupLabel.setPreferredSize(new Dimension(220, 70));
+
+        popupLabel.setHorizontalAlignment(JLabel.CENTER);
+
+
+        Popup basePopup = pf.getPopup(mainFrame, popupLabel, 30, 60);
+        
+        friendPopup = new ConnectionPopup(basePopup, popupLabel);
 
         mainFrame.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent windowEvent) {
@@ -195,6 +204,10 @@ public class ChatroomGUI {
         return friendAreas;
     }
 
+    public ConnectionPopup getPopup() {
+        return friendPopup;
+    }
+
     public void setCurrentArea(JTextArea currentArea) {
         
         gbc.gridx = 0;
@@ -202,7 +215,7 @@ public class ChatroomGUI {
         gbc.weighty = 1;
         gbc.weightx = 1;
 
-        textPanel.remove(currentArea);    
+        textPanel.remove(currentArea);
         this.currentArea = currentArea;
         textPanel.add(currentArea, gbc);
         currentArea.setEditable(false);

@@ -19,9 +19,12 @@ public class Sender{
     }
 
     public void send(String msg) {
-        System.out.println(name + ": " + msg); //print into output screen
-        currentArea.append(name + ": " + msg + "\n");
-        duplexer.send(msg);
+        if(msg != "\u2665") {
+            System.out.println(name + ": " + msg); //print into output screen
+            currentArea.append(name + ": " + msg + "\n");
+            duplexer.send(msg);
+        }
+        
     }
 
     public void quit() {

@@ -27,6 +27,7 @@ public class Application {
         currentUser.setTextAreas(chat.getFriendAreas());
         currentUser.addFriend(friend);
         currentUser.addFriend(f2);
+        currentUser.setPopup(chat.getPopup());
     }
 
     public void connect(int frn) throws IOException {
@@ -35,14 +36,12 @@ public class Application {
             chat.getListener().setSender(currentUser.getSender());
             chat.setCurrentArea(currentUser.getTextAreas().get(friend.getName()));
             currentUser.getSender().send("CONNECTED");
-            currentUser.getSender().send("\u2665");
 
         } else {
             currentUser.createConnection(f2);
             chat.getListener().setSender(currentUser.getSender());
             chat.setCurrentArea(currentUser.getTextAreas().get(f2.getName()));
             currentUser.getSender().send("CONNECTED");
-            currentUser.getSender().send("\u2665");
         }
         
     }
