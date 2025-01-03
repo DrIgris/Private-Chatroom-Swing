@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.HashMap;
-import java.util.Scanner;
 
 import javax.swing.JTextArea;
 
@@ -116,23 +115,6 @@ public class User implements Runnable{
         // Thread s = new Thread(sender);
         // s.start();
     }
-
-    public static void main(String[] args) throws IOException, InterruptedException{
-        User me = new User("Bill", 1105, "localhost");
-        
-        Thread tM = new Thread(me);
-        tM.start();
-        User f2 = new User("Ted", 1209, "localhost");
-        me.addFriend(f2);
-        Thread.sleep(3000);
-        me.createConnection(f2);
-        Scanner scan = new Scanner(System.in);
-        while (true) {
-            String msg = scan.nextLine();
-            me.sender.send(msg);
-        }
-    }
-
 
 
    /*

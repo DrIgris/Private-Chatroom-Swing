@@ -22,6 +22,7 @@ public class ChatroomGUI {
     private JPanel inputPanel;
     private JPanel logoPanel;
     private JTextArea textInput;
+    @SuppressWarnings("unused")
     private JTextArea currentArea;
     private UserInputFieldListener senderListener;
     private HashMap<String, JTextArea> friendAreas;

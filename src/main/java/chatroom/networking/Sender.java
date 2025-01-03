@@ -8,14 +8,13 @@ public class Sender{
     private Duplexer duplexer;
     private String name;
     private JTextArea currentArea;
-    private boolean on;
 
 
     public Sender(Duplexer duplexer, String name, JTextArea currentArea) {
         this.duplexer = duplexer;
         this.name = name;
         this.currentArea = currentArea;
-        on = true;
+
     }
 
     public void send(String msg) {
@@ -27,7 +26,4 @@ public class Sender{
         
     }
 
-    public void quit() {
-        on = false;
-    }
 }

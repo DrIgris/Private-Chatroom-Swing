@@ -7,15 +7,11 @@ import javax.swing.Popup;
 import javax.swing.PopupFactory;
 
 public class PopupHandler implements Runnable{
-    private ChatroomGUI chat;
-    private String name;
     private PopupFactory pf;
     private JLabel popupLabel;
     private Popup popup;
 
     public PopupHandler(ChatroomGUI chat, String name) {
-        this.chat = chat;
-        this.name = name;
 
         pf = new PopupFactory();
 
