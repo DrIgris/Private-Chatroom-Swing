@@ -11,7 +11,7 @@ public class ApplicationHub {
         User mari = new User("Mari", 1102, "localhost");
         User brennen = new User("Brennen", 1100, "localhost");
 
-        Application persiApplication = new Application(persi, mari, brennen);
+        // Application persiApplication = new Application(persi, mari, brennen);
         // Application mariApplication = new Application(mari, persi, brennen);
         // Application brennenApplication = new Application(brennen, persi, mari);
         

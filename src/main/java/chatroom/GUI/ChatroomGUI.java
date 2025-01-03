@@ -27,7 +27,6 @@ public class ChatroomGUI {
     private HashMap<String, JTextArea> friendAreas;
     private GridBagConstraints gbc = new GridBagConstraints();
     private Application application;
-    private ConnectionPopup friendPopup;
 
 
 
@@ -168,21 +167,6 @@ public class ChatroomGUI {
         inputPanel.add(textInput, gbc);
 
 
-        PopupFactory pf = new PopupFactory();
-
-        JLabel popupLabel = new JLabel();
-
-     
-        
-        popupLabel.setPreferredSize(new Dimension(220, 70));
-
-        popupLabel.setHorizontalAlignment(JLabel.CENTER);
-
-
-        Popup basePopup = pf.getPopup(mainFrame, popupLabel, 30, 60);
-        
-        friendPopup = new ConnectionPopup(basePopup, popupLabel);
-
         mainFrame.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent windowEvent) {
                 System.exit(0);
@@ -204,9 +188,10 @@ public class ChatroomGUI {
         return friendAreas;
     }
 
-    public ConnectionPopup getPopup() {
-        return friendPopup;
+    public JFrame getMainFrame() {
+        return mainFrame;
     }
+  
 
     public void setCurrentArea(JTextArea currentArea) {
         

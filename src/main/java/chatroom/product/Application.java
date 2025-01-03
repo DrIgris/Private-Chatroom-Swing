@@ -27,7 +27,7 @@ public class Application {
         currentUser.setTextAreas(chat.getFriendAreas());
         currentUser.addFriend(friend);
         currentUser.addFriend(f2);
-        currentUser.setPopup(chat.getPopup());
+        currentUser.setChat(chat);
     }
 
     public void connect(int frn) throws IOException {
