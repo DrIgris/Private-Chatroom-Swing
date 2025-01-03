@@ -77,43 +77,18 @@ public class ChatroomGUI {
         friendPanel.setLayout(new BoxLayout(friendPanel, BoxLayout.Y_AXIS));
         
       
-
         friendAreas = new HashMap<>();
-        Button mariButton = new Button("Mari");
-        mariButton.setPreferredSize(buttonSize);
-        mariButton.setMaximumSize(buttonSize);
-        JTextArea mariArea = new JTextArea();
-        friendPanel.add(mariButton);
-        friendAreas.put("Mari", mariArea);
-        
-        Button persiButton = new Button("Persi");
-        persiButton.setPreferredSize(buttonSize);
-        persiButton.setMaximumSize(buttonSize);
-        JTextArea persiArea = new JTextArea();
-        friendPanel.add(persiButton);
-        friendAreas.put("Persi", persiArea);
-       
-        Button brennenButton = new Button("Brennen");
-        brennenButton.setPreferredSize(buttonSize);
-        brennenButton.setMaximumSize(buttonSize);
-        JTextArea brennenArea = new JTextArea();
-        friendPanel.add(brennenButton);
-        friendAreas.put("Brennen", brennenArea);
+        for(String key : application.getCurrentUser().getFriends().keySet()) {
+            Button button = new Button(key);
+            button.setActionCommand(key);
+            button.setPreferredSize(buttonSize);
+            button.setMaximumSize(buttonSize);
+            JTextArea area = new JTextArea();
+            friendPanel.add(button);
+            friendAreas.put(key, area);
+            button.addActionListener(new FriendButtonListener(application));
+        }
 
-        Button kateButton = new Button("Kate");
-        kateButton.setPreferredSize(buttonSize);
-        kateButton.setMaximumSize(buttonSize);
-        JTextArea kateArea = new JTextArea();
-        friendPanel.add(kateButton);
-        friendAreas.put("Kate", kateArea);
-
-       
-
-        mariButton.addActionListener(new FriendButtonListener(application, 0));
-
-        persiButton.addActionListener(new FriendButtonListener(application, 0));
-
-        brennenButton.addActionListener(new FriendButtonListener(application, 1));
 
         JScrollPane friendScroll = new JScrollPane(friendPanel);
         

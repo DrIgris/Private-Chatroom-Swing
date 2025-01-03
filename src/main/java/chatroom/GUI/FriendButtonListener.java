@@ -9,17 +9,16 @@ import src.main.java.chatroom.product.Application;
 public class FriendButtonListener implements ActionListener{
 
     private Application application;
-    private int frn;
 
-    public FriendButtonListener(Application application, int frn) {
+    public FriendButtonListener(Application application) {
         this.application = application;
-        this.frn = frn;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        String name = e.getActionCommand();
         try {
-            application.connect(frn);
+            application.connect(name);
         } catch (IOException e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
