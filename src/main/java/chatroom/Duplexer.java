@@ -1,4 +1,4 @@
-package src.main.java.chatroom;
+package chatroom;
 
 import java.io.IOException;
 import java.io.PrintWriter;

@@ -1,11 +1,12 @@
-package src.main.java.chatroom.GUI;
+package chatroom.GUI;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.JTextArea;
 
-import src.main.java.chatroom.networking.Sender;
+import chatroom.networking.Sender;
+
 
 
 public class UserInputFieldListener implements KeyListener{

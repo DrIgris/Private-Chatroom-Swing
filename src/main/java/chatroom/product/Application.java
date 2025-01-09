@@ -1,10 +1,10 @@
-package src.main.java.chatroom.product;
+package chatroom.product;
 
 import java.io.IOException;
 
-import src.main.java.chatroom.GUI.ChatroomGUI;
-import src.main.java.chatroom.data_handlers.AddFriendParser;
-import src.main.java.chatroom.networking.User;
+import chatroom.GUI.ChatroomGUI;
+import chatroom.data_handlers.AddFriendParser;
+import chatroom.networking.User;
 
 public class Application {
     private User currentUser;

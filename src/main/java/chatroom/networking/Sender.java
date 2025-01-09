@@ -1,8 +1,9 @@
-package src.main.java.chatroom.networking;
+package chatroom.networking;
 
 import javax.swing.JTextArea;
 
-import src.main.java.chatroom.Duplexer;
+import chatroom.Duplexer;
+
 
 public class Sender{
     private Duplexer duplexer;

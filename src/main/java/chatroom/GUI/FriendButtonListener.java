@@ -1,10 +1,11 @@
-package src.main.java.chatroom.GUI;
+package chatroom.GUI;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
-import src.main.java.chatroom.product.Application;
+import chatroom.product.Application;
+
 
 public class FriendButtonListener implements ActionListener{
 

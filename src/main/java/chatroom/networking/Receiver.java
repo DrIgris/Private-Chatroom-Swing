@@ -1,12 +1,12 @@
-package src.main.java.chatroom.networking;
+package chatroom.networking;
 
 import java.io.IOException;
 
 import javax.swing.JTextArea;
 
-import src.main.java.chatroom.Duplexer;
-import src.main.java.chatroom.GUI.ChatroomGUI;
-import src.main.java.chatroom.GUI.PopupHandler;
+import chatroom.Duplexer;
+import chatroom.GUI.ChatroomGUI;
+import chatroom.GUI.PopupHandler;
 
 public class Receiver implements Runnable{
     private JTextArea friendArea;

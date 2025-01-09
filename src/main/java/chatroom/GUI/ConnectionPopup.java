@@ -1,4 +1,4 @@
-package src.main.java.chatroom.GUI;
+package chatroom.GUI;
 
 import javax.swing.JLabel;
 import javax.swing.Popup;

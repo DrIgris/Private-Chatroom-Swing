@@ -1,4 +1,4 @@
-package src.main.java.chatroom.networking;
+package chatroom.networking;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -7,8 +7,8 @@ import java.util.HashMap;
 
 import javax.swing.JTextArea;
 
-import src.main.java.chatroom.Duplexer;
-import src.main.java.chatroom.GUI.ChatroomGUI;
+import chatroom.Duplexer;
+import chatroom.GUI.ChatroomGUI;
 
 public class User implements Runnable{
     private String name;

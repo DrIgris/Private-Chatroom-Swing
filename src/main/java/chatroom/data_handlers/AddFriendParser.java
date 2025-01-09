@@ -1,10 +1,10 @@
-package src.main.java.chatroom.data_handlers;
+package chatroom.data_handlers;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-import src.main.java.chatroom.networking.User;
+import chatroom.networking.User;
 
 public class AddFriendParser {    
 

@@ -1,4 +1,4 @@
-package src.main.java.chatroom.GUI;
+package chatroom.GUI;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -10,7 +10,8 @@ import java.util.HashMap;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
-import src.main.java.chatroom.product.Application;
+import chatroom.product.Application;
+
 
 
 public class ChatroomGUI {

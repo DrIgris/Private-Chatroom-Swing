@@ -1,9 +1,10 @@
-package src.main.java.chatroom;
+package chatroom;
 
 import java.io.IOException;
 
-import src.main.java.chatroom.networking.User;
-import src.main.java.chatroom.product.Application;
+import chatroom.networking.User;
+import chatroom.product.Application;
+
 
 public class ApplicationHub {
     public static void main(String[] args) throws IOException, InterruptedException {
@@ -13,7 +14,7 @@ public class ApplicationHub {
 
         // Application persiApplication = new Application(persi);
         // Application mariApplication = new Application(mari);
-        // Application brennenApplication = new Application(brennen);
+        Application brennenApplication = new Application(brennen);
         
     }
 }

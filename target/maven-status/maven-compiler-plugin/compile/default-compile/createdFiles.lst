@@ -1,0 +1,14 @@
+src/main/java/chatroom/networking/Sender.class
+src/main/java/chatroom/GUI/ChatroomGUI.class
+src/main/java/chatroom/ICE_practice/ice4jTest.class
+src/main/java/chatroom/Duplexer.class
+src/main/java/chatroom/ApplicationHub.class
+src/main/java/chatroom/GUI/ChatroomGUI$1.class
+src/main/java/chatroom/networking/User.class
+src/main/java/chatroom/GUI/ConnectionPopup.class
+src/main/java/chatroom/GUI/UserInputFieldListener.class
+src/main/java/chatroom/product/Application.class
+src/main/java/chatroom/GUI/FriendButtonListener.class
+src/main/java/chatroom/GUI/PopupHandler.class
+src/main/java/chatroom/data_handlers/AddFriendParser.class
+src/main/java/chatroom/networking/Receiver.class
